@@ -1,8 +1,8 @@
 from pathlib import Path
 import logging
 
-BASE_PATH = Path.cwd().parent
-LOG_PATH = BASE_PATH / "pipeline" / "logs" / "pipeline.log"
+BASE_PATH = Path(__file__).resolve().parent
+LOG_PATH = BASE_PATH / "logs" / "pipeline.log"
 # Create log file if it doesn't exist
 LOG_PATH.parent.mkdir(parents=True, exist_ok=True)
 
