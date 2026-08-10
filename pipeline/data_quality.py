@@ -20,7 +20,7 @@ ALLOWED_SERVICES = [
 ALLOWED_LEVELS = [
 	'INFO',
 	'WARN',
-	'INFO'
+	'ERROR'
 ]
 
 class SilverLogSchema(pa.DataFrameModel):
@@ -44,21 +44,26 @@ class SilverLogSchema(pa.DataFrameModel):
 
 	@pa.dataframe_check
 	def check_event_corrupted(cls, df: pd.DataFrame) -> bool:
-		expected_corrupted = (df['timestamp'] == "not-a-date")
-		return (df['is_event_corrupted'] == expected_corrupted).all()
+		expected = df['timestamp'].eq("not-a-date")
+		return (df['is_event_corrupted'] == expected).all()
 	
 	@ pa.dataframe_check
 	def check_fwd_filled_timestamp(cls, df: pd.DataFrame) -> bool:
-		return df.loc[
-			df['timestamp'] == 'not-a-date',
-			'event_timestamp_utc'
-		].notna().all()
+		corrupted_rows = df["is_event_corrupted"]
 	
-	@pa.dataframe_check
-	def check_nan_level(cls, df: pd.DataFrame) -> bool:
-		imputed_rows = (df['is_level_imputed'] == True)
 		return (
-			(imputed_rows['level'] == 'INFO') & 
-			(imputed_rows['message'] == 'Heartbeat ok')
+      		df.loc[
+				corrupted_rows,
+				'event_timestamp_utc0'
+			].notna().all()
+		)
+ 
+	@pa.dataframe_check
+	def check_imputed_level(cls, df: pd.DataFrame) -> bool:
+		imputed_rows = df['is_level_imputed']
+
+		return (
+			df.loc[imputed_rows, 'level'].eq("INFO")
+			& df.loc[imputed_rows, 'message'].eq("Heartbeat ok")
 		).all()
 		

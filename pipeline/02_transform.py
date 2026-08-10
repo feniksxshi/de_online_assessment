@@ -46,12 +46,12 @@ def run_transformation(BRONZE_INPUT_PATH: str, SILVER_OUTPUT_PATH: str):
 		errors="coerce"
 	)
 	
-	df['is_event_corrupted'] = df['event_timestamp_utc0'].isna()
+	df['is_event_corrupted'] = (df['event_timestamp_utc0'].isna())
 	
 	# Forward-fill 'not-a-date' timestamp
-	df['event_timestamp_utc0'] = df['event_timestamp_utc0'].ffill()
+	df['event_timestamp_utc0'] = (df['event_timestamp_utc0'].ffill())
 	
-	df['event_date_utc0'] = df['event_timestamp_utc0'].dt.date
+	df['event_date_utc0'] = (df['event_timestamp_utc0'].dt.date)
  
 	# 4. Level transformation
 	level_impute_msk = (
@@ -76,7 +76,7 @@ def run_transformation(BRONZE_INPUT_PATH: str, SILVER_OUTPUT_PATH: str):
 		# lazy=True collects ALL failure cases instead of stopping at the first one
 		validated_df = SilverLogSchema.validate(df, lazy=True)
 		logger.info("ALL PASSED!")
-	except pa.errors.SchemaErros as err:
+	except pa.errors.SchemaErrors as err:
 		logger.error(f"FAILED! Found {len(err.failure_cases)} issues:")
 		logger.error("\n" + str(err.failure_cases[['check', 'column', 'failure_case']]))
   
@@ -94,4 +94,5 @@ def run_transformation(BRONZE_INPUT_PATH: str, SILVER_OUTPUT_PATH: str):
 	)
  
 	logger.info(f"Successfully saved {len(validated_df)} Silver records")
+
 	
