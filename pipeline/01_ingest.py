@@ -2,6 +2,8 @@
 from pipeline.logger import get_logger 
 import json
 
+logger = get_logger("IngestBronze")
+
 def run_ingestion(DATA_PATH: str, QUARANTINE_PATH: str, VALID_OUTPUT_PATH: str):
 	"""
 	Description: Raw to Bronze layer 
@@ -9,7 +11,6 @@ def run_ingestion(DATA_PATH: str, QUARANTINE_PATH: str, VALID_OUTPUT_PATH: str):
 	Transformation: None
 	"""
 	
-	logger = get_logger("Ingest")
 	logger.info("Starting data ingestion process...")
 	
 	success_count = 0
