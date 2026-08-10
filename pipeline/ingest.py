@@ -2,15 +2,17 @@
 from pipeline.logger import get_logger 
 import json
 
-logger = get_logger("IngestBronze")
-
-def run_ingestion(DATA_PATH: str, QUARANTINE_PATH: str, VALID_OUTPUT_PATH: str):
+def run_ingestion(
+    DATA_PATH: str, 
+    QUARANTINE_PATH: str, 
+    VALID_OUTPUT_PATH: str,
+    LOG_PATH: str):
 	"""
 	Description: Raw to Bronze layer 
 	Goal: Isolate malformed JSON from valid JSON with zero data loss
 	Transformation: None
 	"""
-	
+	logger = get_logger(name="IngestBronze", log_file=LOG_PATH)	
 	logger.info("Starting data ingestion process...")
 	
 	success_count = 0

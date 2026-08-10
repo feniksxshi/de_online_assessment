@@ -3,7 +3,6 @@ from pipeline.data_quality import SilverLogSchema
 import pandera as pa
 import pandas as pd
 
-logger = get_logger("SilverCleaning")
 LOG_SOURCE_COLUMNS = [
     "timestamp",
     "service",
@@ -13,12 +12,17 @@ LOG_SOURCE_COLUMNS = [
     "trace_id",
 ]
 
-def run_transformation(BRONZE_INPUT_PATH: str, SILVER_OUTPUT_PATH: str):
+def run_transformation(
+    BRONZE_INPUT_PATH: str, 
+    SILVER_OUTPUT_PATH: str,
+    LOG_PATH: str):
 	"""
 	Description: Bronze to Silver layer 
 	Goal: Transform data
 	Transformation: Yes
-	"""	
+	"""
+	logger = get_logger(name="SilverCleaning", log_file=LOG_PATH)
+ 
 	# 1. Read Bronze
 	logger.info("Reading Bronze data")
 	df = pd.read_json(BRONZE_INPUT_PATH, lines=True)
@@ -75,9 +79,9 @@ def run_transformation(BRONZE_INPUT_PATH: str, SILVER_OUTPUT_PATH: str):
 	try:
 		# lazy=True collects ALL failure cases instead of stopping at the first one
 		validated_df = SilverLogSchema.validate(df, lazy=True)
-		logger.info("ALL PASSED!")
+		logger.info("ALL DATA QUALITY CHECKS PASSED!")
 	except pa.errors.SchemaErrors as err:
-		logger.error(f"FAILED! Found {len(err.failure_cases)} issues:")
+		logger.error(f"DATA QUALITY CHECKS FAILED! Found {len(err.failure_cases)} issues:")
 		logger.error("\n" + str(err.failure_cases[['check', 'column', 'failure_case']]))
   
 		# raise error to stop corrupt data from being written to Parquet
