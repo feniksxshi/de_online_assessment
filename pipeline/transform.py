@@ -88,7 +88,7 @@ def run_transformation(BRONZE_INPUT_PATH: str, SILVER_OUTPUT_PATH: str):
 	
 	validated_df.to_parquet(
 		path=SILVER_OUTPUT_PATH,
-		partition_cols=["event_date_utc"],
+		partition_cols=["event_date_utc0"],
 		index=False,
 		engine="pyarrow"
 	)
