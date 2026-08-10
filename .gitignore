@@ -1,7 +1,10 @@
-data/*                                                                                                                                                                      
-!data/.gitkeep
+# Data files (keep directory structure with .gitkeep)                                                                                                                    
+data/**                                                                                                                                                                  
+!data/**/.gitkeep
+!data/silver
 
-**/logs/*                                                                                                                                                                      
+**/logs/**                                                                                                                                                                      
 !**/logs/.gitkeep
 
-**/__pychache__
+**/__pycache__/
+.venv/
