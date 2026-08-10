@@ -1,14 +1,11 @@
 from pathlib import Path
 import logging
 
-# BASE_PATH = Path(__file__).resolve().parent
-# LOG_PATH = BASE_PATH / "logs" / "pipeline.log"
-# # Create log file if it doesn't exist
-# LOG_PATH.parent.mkdir(parents=True, exist_ok=True)
+DEFAULT_LOG_PATH = Path(__file__).resolve().parent / "logs" / "pipeline.log"
 
 def get_logger(
-    log_file: Path,
     name: str = "pipeline",
+    log_file: Path | str | None = None,
     level: int = logging.INFO) -> logging.Logger:
 	
 	logger = logging.getLogger(name)
@@ -21,7 +18,10 @@ def get_logger(
 			datefmt="%Y-%m-%d %H:%M:%S"
 		)
   
-		file_handler = logging.FileHandler(log_file, mode="a", encoding="utf-8")
+		target_log_file = Path(log_file) if log_file is not None else DEFAULT_LOG_PATH
+		target_log_file.parent.mkdir(parents=True, exist_ok=True)
+  
+		file_handler = logging.FileHandler(target_log_file, mode="a", encoding="utf-8")
 		file_handler.setFormatter(formatter)
 		logger.addHandler(file_handler) 
 	

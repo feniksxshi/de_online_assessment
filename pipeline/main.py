@@ -17,7 +17,7 @@ QUARANTINE_PATH = DATA_DIR / "bronze" / "quarantine" / "malformed_records.jsonl"
 BRONZE_VALID_PATH = DATA_DIR / "bronze" / "bronze_valid_records.jsonl"
 SILVER_OUTPUT_PATH = DATA_DIR / "silver" / "silver_valid_records.parquet"
 
-logger = get_logger('MainPipeline')
+logger = get_logger(name='MainPipeline', log_file=PIPELINE_LOG_PATH)
 
 def main():
 	logger.info("STARTING LOG PROCESSING PIPELINE")
