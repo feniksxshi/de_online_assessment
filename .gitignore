@@ -1,10 +1,23 @@
-# Data files (keep directory structure with .gitkeep)                                                                                                                    
-data/**                                                                                                                                                                  
-!data/**/.gitkeep
-!data/silver
+# Ignore raw and bronze data, keep silver data and directory .gitkeeps
+data/raw/*
+!data/raw/.gitkeep
 
-**/logs/**                                                                                                                                                                      
+data/bronze/*
+!data/bronze/.gitkeep
+!data/bronze/quarantine/
+data/bronze/quarantine/*
+!data/bronze/quarantine/.gitkeep
+
+notebooks/outputs/**
+!notebooks/outputs/.gitkeep
+
+**/logs/**
 !**/logs/.gitkeep
 
-**/__pycache__/
+__pycache__/
+*.py[cod]
+*$py.class
+.ipynb_checkpoints/
+.pytest_cache/
 .venv/
+
