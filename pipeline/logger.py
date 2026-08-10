@@ -1,14 +1,14 @@
 from pathlib import Path
 import logging
 
-BASE_PATH = Path(__file__).resolve().parent
-LOG_PATH = BASE_PATH / "logs" / "pipeline.log"
-# Create log file if it doesn't exist
-LOG_PATH.parent.mkdir(parents=True, exist_ok=True)
+# BASE_PATH = Path(__file__).resolve().parent
+# LOG_PATH = BASE_PATH / "logs" / "pipeline.log"
+# # Create log file if it doesn't exist
+# LOG_PATH.parent.mkdir(parents=True, exist_ok=True)
 
 def get_logger(
+    log_file: Path,
     name: str = "pipeline",
-    log_file: Path = LOG_PATH,
     level: int = logging.INFO) -> logging.Logger:
 	
 	logger = logging.getLogger(name)
