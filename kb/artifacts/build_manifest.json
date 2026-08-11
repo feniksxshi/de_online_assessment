@@ -1,0 +1,51 @@
+{
+  "active_chunk_count": 20,
+  "builder_version": "2.0.0",
+  "built_at_utc": "2026-08-11T12:19:17.787493+00:00",
+  "chunk_count": 22,
+  "document_count": 8,
+  "embedding_model": null,
+  "schema_version": 2,
+  "sources": [
+    {
+      "is_active": true,
+      "sha256": "62385805aea80ce1f8b890a3bb554d7ab9b5737f7093eed3859a208e07547d8a",
+      "source_file": "FAQ-01_loi_thuong_gap.md"
+    },
+    {
+      "is_active": true,
+      "sha256": "8f7879e5e999c8bda2b7e81e3ca2feaecf27f72a6b6ee23c6f1eb1701d4d8230",
+      "source_file": "GUIDE-01_giam_sat_he_thong.md"
+    },
+    {
+      "is_active": false,
+      "sha256": "6965466ce7da1cc41f33af7840b885da3897272d41ee5d54a52693327a440412",
+      "source_file": "POL-01_chinh_sach_backup_v1.md"
+    },
+    {
+      "is_active": true,
+      "sha256": "28a7e118f152fec197cfcc248c61416db21a8f63200fc669d0c33f5a9c31a603",
+      "source_file": "POL-01_chinh_sach_backup_v2.md"
+    },
+    {
+      "is_active": true,
+      "sha256": "ae7d5328c23f7f4014787fbf0ae0ccf52885b982492b11b2ec46377d231a5369",
+      "source_file": "POL-02_chinh_sach_truy_cap.md"
+    },
+    {
+      "is_active": true,
+      "sha256": "064824b9aad2b48e3810f135b1575e3d00fb68e77bc8c97c3fb43b9f222f8fed",
+      "source_file": "RUN-01_runbook_batch_report.md"
+    },
+    {
+      "is_active": true,
+      "sha256": "3ce60eb0622c2bf4e043f9c5f9d982a7d481a53517b1197847ebaa4f7013dfc5",
+      "source_file": "SOP-01_khoi_dong_lai_dich_vu.md"
+    },
+    {
+      "is_active": true,
+      "sha256": "e524d222d468f8df4ed6870afa3edd74817ffdc2b9e889ff7977a706ce572b1f",
+      "source_file": "SOP-02_quy_trinh_escalation.md"
+    }
+  ]
+}

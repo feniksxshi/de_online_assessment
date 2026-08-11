@@ -1,0 +1,92 @@
+[
+  {
+    "id": "backup-retention-current",
+    "question": "Backup được lưu giữ bao nhiêu ngày?",
+    "expected_doc_ids": ["POL-01"],
+    "expected_version": "2.0",
+    "expected_terms": ["30 ngày"],
+    "forbidden_versions": ["1.0"],
+    "max_rank": 1
+  },
+  {
+    "id": "backup-time-accentless",
+    "question": "Chinh sach sao luu chay luc may gio?",
+    "expected_doc_ids": ["POL-01"],
+    "expected_version": "2.0",
+    "expected_terms": ["23:30"],
+    "forbidden_versions": ["1.0"],
+    "max_rank": 1
+  },
+  {
+    "id": "restore-approval-cross-language",
+    "question": "Who authorizes data recovery?",
+    "expected_doc_ids": ["POL-01"],
+    "expected_version": "2.0",
+    "expected_terms": ["Trưởng phòng Vận hành"],
+    "forbidden_versions": ["1.0"],
+    "max_rank": 2
+  },
+  {
+    "id": "connection-timeout",
+    "question": "ERR ConnTimeout db-primary xử lý thế nào?",
+    "expected_doc_ids": ["FAQ-01"],
+    "expected_terms": ["liên hệ DBA trực"],
+    "max_rank": 1
+  },
+  {
+    "id": "report-null-pointer",
+    "question": "ERR NullPointer ReportBuilder rerun thế nào?",
+    "expected_doc_ids": ["RUN-01", "FAQ-01"],
+    "expected_terms": ["Chạy lại job", "rerun"],
+    "max_rank": 2
+  },
+  {
+    "id": "payment-restart-queue",
+    "question": "restart payment-api queue phải kiểm tra gì?",
+    "expected_doc_ids": ["SOP-01"],
+    "expected_terms": ["queue = 0"],
+    "max_rank": 1
+  },
+  {
+    "id": "notification-critical-threshold",
+    "question": "Ngưỡng CRITICAL queue notification-worker là bao nhiêu?",
+    "expected_doc_ids": ["GUIDE-01"],
+    "expected_terms": ["> 5.000"],
+    "max_rank": 1
+  },
+  {
+    "id": "production-db-access",
+    "question": "Ai được truy cập database production?",
+    "expected_doc_ids": ["POL-02"],
+    "expected_terms": ["nhóm DBA", "mức 2"],
+    "max_rank": 1
+  },
+  {
+    "id": "p1-response-time",
+    "question": "Sự cố P1 phải phản ứng trong bao lâu?",
+    "expected_doc_ids": ["SOP-02"],
+    "expected_terms": ["15 phút"],
+    "max_rank": 1
+  },
+  {
+    "id": "postmortem-deadline",
+    "question": "P2 post-mortem deadline là khi nào?",
+    "expected_doc_ids": ["SOP-02"],
+    "expected_terms": ["3 ngày làm việc"],
+    "max_rank": 2
+  },
+  {
+    "id": "document-id-lookup",
+    "question": "POL-02 password policy",
+    "expected_doc_ids": ["POL-02"],
+    "expected_terms": ["90 ngày"],
+    "max_rank": 1
+  },
+  {
+    "id": "unsupported-question",
+    "question": "office cafeteria lunch menu",
+    "expected_doc_ids": [],
+    "expected_terms": [],
+    "expect_no_results": true
+  }
+]

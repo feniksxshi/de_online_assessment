@@ -14,6 +14,9 @@ notebooks/outputs/**
 **/logs/**
 !**/logs/.gitkeep
 
+data/docs/**
+!data/docs/.gitkeep
+
 __pycache__/
 *.py[cod]
 *$py.class
