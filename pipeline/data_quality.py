@@ -1,7 +1,7 @@
 # Docs: 
 # https://pandera.readthedocs.io/en/stable/dataframe_schemas.html
 # https://pandera.readthedocs.io/en/stable/?badge=stable#dataframe-model
-import pandera as pa
+import pandera.pandas as pa
 from datetime import date
 from pandera.typing import Series
 import pandas as pd
