@@ -1,3 +1,0 @@
-- Chưa kịp làm phần: Thiết kế data pipeline trên AWS
-- Không chắc chắn về phần: Thiết kế Knowledge Base
-- Chưa kịp viết AI_WORKLOG.md
