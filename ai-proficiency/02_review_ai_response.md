@@ -49,5 +49,5 @@ Một trợ lý AI được hỏi: "Thiết kế pipeline trên AWS thu log hằ
 		- Ngoài ra, việc ghi đè trực tiếp mà không kiểm soát dễ làm mất đồng bộ giữa Vector DB và Data Lake.
 - **Hướng sửa đổi**:
 	- Sử dụng chunk size linh hoạt (thường từ 256–512 tokens kết hợp với chunk overlap 10–20%) tùy thuộc vào cấu trúc tài liệu.
-	- Bật S3 Versioning cho bucket chứa Knowledge Base. Khi cập nhật tài liệu, cần chạy pipeline để xóa các vector cũ tương ứng trong Vector DB trước khi upsert vector mới.
+	- Bật **S3 Versioning** cho bucket chứa Knowledge Base. Khi cập nhật tài liệu, cần chạy pipeline để xóa các vector cũ tương ứng trong Vector DB trước khi upsert vector mới.
 - **Nguồn kiểm chứng**: https://docs.aws.amazon.com/prescriptive-guidance/latest/writing-best-practices-rag/best-practices.html
