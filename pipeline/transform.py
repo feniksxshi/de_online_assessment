@@ -1,6 +1,6 @@
 from pipeline.logger import get_logger
 from pipeline.data_quality import SilverLogSchema
-import pandera as pa
+import pandera.pandas as pa
 import pandas as pd
 
 LOG_SOURCE_COLUMNS = [
@@ -94,7 +94,8 @@ def run_transformation(
 		path=SILVER_OUTPUT_PATH,
 		partition_cols=["event_date_utc0"],
 		index=False,
-		engine="pyarrow"
+		engine="pyarrow",
+		existing_data_behavior="delete_matching"
 	)
  
 	logger.info(f"Successfully saved {len(validated_df)} Silver records")
